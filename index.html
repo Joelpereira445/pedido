@@ -42,12 +42,13 @@
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      align-items: center;
+      gap: 20px;
       position: relative;
       min-height: 50px;
     }
     button {
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 1.1rem;
       font-weight: bold;
       border: none;
@@ -62,7 +63,6 @@
     #btn-nao {
       background-color: #6c757d;
       color: white;
-      position: absolute;
     }
     #mensagem {
       display: none;
@@ -85,7 +85,7 @@
       <p class="subtitulo">Aceita sair comigo para um lugar legal? 🌹</p>
 
       <div class="buttons" id="painel-botoes">
-        <button id="btn-sim" onclick="aceitou()">Com certeza! S2</button>
+        <button id="btn-sim" onclick="aceitou()">Sim</button>
         <button id="btn-nao" onclick="desviar(this)" ontouchstart="desviar(this)">Não</button>
       </div>
     </div>
