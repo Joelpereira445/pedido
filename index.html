@@ -3,61 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quer sair comigo?</title>
+  <title>Para a Patrícia ❤️</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
-      background-color: #ffe6e9;
-      font-family: sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #ffe6e9 0%, #ffb6c1 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
     }
-    h1 { color: #d63384; font-size: 2rem; margin-bottom: 20px; }
-    .buttons { display: flex; gap: 20px; position: relative; }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    p.subtitulo {
+      color: #6c757d;
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      min-height: 50px;
+    }
     button {
-      padding: 15px 25px;
+      padding: 12px 24px;
       font-size: 1.1rem;
       font-weight: bold;
       border: none;
-      border-radius: 10px;
+      border-radius: 25px;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    #btn-sim { background-color: #28a745; color: white; }
-    #btn-nao { background-color: #dc3545; color: white; position: absolute; left: 110px; }
-    #mensagem { display: none; margin-top: 30px; font-size: 1.5rem; color: #d63384; }
+    #btn-sim {
+      background-color: #ff4081;
+      color: white;
+    }
+    #btn-nao {
+      background-color: #6c757d;
+      color: white;
+      position: absolute;
+    }
+    #mensagem {
+      display: none;
+      font-size: 1.4rem;
+      color: #d63384;
+      font-weight: bold;
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
 
-  <h1 id="titulo">Quer sair comigo? ❤️</h1>
+  <div class="card">
+    <div id="conteudo-principal">
+      <h1 id="titulo">Patrícia... ✨</h1>
+      <p class="subtitulo">Aceita sair comigo para um lugar legal? 🌹</p>
 
-  <div class="buttons" id="painel-botoes">
-    <button id="btn-sim" onclick="aceitou()">Sim!</button>
-    <button id="btn-nao" onclick="desviar(this)" ontouchstart="desviar(this)">Não</button>
-  </div>
+      <div class="buttons" id="painel-botoes">
+        <button id="btn-sim" onclick="aceitou()">Com certeza! S2</button>
+        <button id="btn-nao" onclick="desviar(this)" ontouchstart="desviar(this)">Não</button>
+      </div>
+    </div>
 
-  <div id="mensagem">
-    🎉 Eba! Me avisa qual dia você tá livre! 😉
+    <div id="mensagem">
+      🎉 Ebaaaaa! Mal posso esperar! Me avisa qual dia e horário você prefere! 🥰✨
+    </div>
   </div>
 
   <script>
     function desviar(btn) {
-      const largura = window.innerWidth - btn.offsetWidth;
-      const altura = window.innerHeight - btn.offsetHeight;
-      const novaEsquerda = Math.floor(Math.random() * largura);
-      const novaTop = Math.floor(Math.random() * altura);
+      const largura = window.innerWidth - btn.offsetWidth - 40;
+      const altura = window.innerHeight - btn.offsetHeight - 40;
+      const novaEsquerda = Math.max(20, Math.floor(Math.random() * largura));
+      const novaTop = Math.max(20, Math.floor(Math.random() * altura));
       btn.style.position = "fixed";
       btn.style.left = novaEsquerda + "px";
       btn.style.top = novaTop + "px";
     }
 
     function aceitou() {
-      document.getElementById("titulo").style.display = "none";
-      document.getElementById("painel-botoes").style.display = "none";
+      document.getElementById("conteudo-principal").style.display = "none";
       document.getElementById("mensagem").style.display = "block";
     }
   </script>
