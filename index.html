@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer sair comigo?</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffe6e9;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 20px; }
+    .buttons { display: flex; gap: 20px; position: relative; }
+    button {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #btn-sim { background-color: #28a745; color: white; }
+    #btn-nao { background-color: #dc3545; color: white; position: absolute; left: 110px; }
+    #mensagem { display: none; margin-top: 30px; font-size: 1.5rem; color: #d63384; }
+  </style>
+</head>
+<body>
+
+  <h1 id="titulo">Quer sair comigo? ❤️</h1>
+
+  <div class="buttons" id="painel-botoes">
+    <button id="btn-sim" onclick="aceitou()">Sim!</button>
+    <button id="btn-nao" onclick="desviar(this)" ontouchstart="desviar(this)">Não</button>
+  </div>
+
+  <div id="mensagem">
+    🎉 Eba! Me avisa qual dia você tá livre! 😉
+  </div>
+
+  <script>
+    function desviar(btn) {
+      const largura = window.innerWidth - btn.offsetWidth;
+      const altura = window.innerHeight - btn.offsetHeight;
+      const novaEsquerda = Math.floor(Math.random() * largura);
+      const novaTop = Math.floor(Math.random() * altura);
+      btn.style.position = "fixed";
+      btn.style.left = novaEsquerda + "px";
+      btn.style.top = novaTop + "px";
+    }
+
+    function aceitou() {
+      document.getElementById("titulo").style.display = "none";
+      document.getElementById("painel-botoes").style.display = "none";
+      document.getElementById("mensagem").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
